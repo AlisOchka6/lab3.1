@@ -70,29 +70,25 @@ def main():
                 "выхода нажмите любую клавишу!\n"))
             if work == 1:
                 library.show()
+            elif work == 2:
+                name = input("Введите название книги: ")
+                author = input("Введите автора книги: ")
+                year = input("Введите год издательства книги: ")
+                library.add(name, author, year)
+            elif work == 3:
+                flag = input(
+                    "Введите параметр, по которому вы хотите отсортировать библиотеку (название, автор, год): ")
+                library.sort(flag)
+                library.show()
+            elif work == 4:
+                attr = input(
+                    "Введите название, автора или год издательства книги, которую вы хотите удалить: ")
+                library.delete(library.search(attr))
+            elif work == 5:
+                attr = input("Введите название, автора или год издательства книги : ")
+                library.search(attr)
             else:
-                if work == 2:
-                    name = input("Введите название книги: ")
-                    author = input("Введите автора книги: ")
-                    year = input("Введите год издательства книги: ")
-                    library.add(name, author, year)
-                else:
-                    if work == 3:
-                        flag = input(
-                            "Введите параметр, по которому вы хотите отсортировать библиотеку (название, автор, год): ")
-                        library.sort(flag)
-                        library.show()
-                    else:
-                        if work == 4:
-                            attr = input(
-                                "Введите название, автора или год издательства книги, которую вы хотите удалить: ")
-                            library.delete(library.search(attr))
-                        else:
-                            if work == 5:
-                                attr = input("Введите название, автора или год издательства книги : ")
-                                library.search(attr)
-                            else:
-                                break
+                break
         except ValueError:
             break
 
